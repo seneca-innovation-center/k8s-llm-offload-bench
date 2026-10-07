@@ -1,0 +1,19 @@
+{
+ "model": "qwen2",
+ "compute_ms_idle_s1": 5.677850000211038,
+ "compute_ms_idle_s512": 49.62510699988343,
+ "bw_GBps_buffered_1readers": 3.54,
+ "bw_GBps_buffered_2readers": 5.99,
+ "bw_GBps_buffered_4readers": 7.0,
+ "compute_ms_s1_during_buffered_loads": 6.547340002725832,
+ "compute_ms_s512_during_buffered_loads": 63.42706349823857,
+ "bw_GBps_direct_1readers": 5.78,
+ "bw_GBps_direct_2readers": 8.32,
+ "bw_GBps_direct_4readers": 11.19,
+ "compute_ms_s1_during_direct_loads": 4.314703997806646,
+ "compute_ms_s512_during_direct_loads": 51.4643279966549,
+ "slowdown_s1_buffered": 1.15,
+ "slowdown_s512_buffered": 1.28,
+ "slowdown_s1_direct": 0.76,
+ "slowdown_s512_direct": 1.04
+}

@@ -1,0 +1,6 @@
+buffered (fadvise)   1 reader(s):  3.71 GB/s   page cache change -0.00 GB
+buffered (fadvise)   4 reader(s):  6.54 GB/s   page cache change +0.02 GB
+buffered (fadvise)   repeat 4 readers:  6.44 GB/s   page cache change -0.02 GB
+O_DIRECT             1 reader(s):  4.17 GB/s   page cache change -0.00 GB
+O_DIRECT             4 reader(s):  6.49 GB/s   page cache change +0.00 GB
+O_DIRECT             repeat 4 readers:  6.45 GB/s   page cache change -0.00 GB

@@ -1,0 +1,17 @@
+{
+  "source": "microbench.py run in cyclic:v1 container, cpuset 16-31, 16 threads, single process, no other pods running",
+  "cold_load_ms_med": 41.19496897328645,
+  "cold_load_ms_p90": 44.49406894855201,
+  "cold_GBps": 3.738320572588944,
+  "warm_load_ms_med": 19.409497966989875,
+  "compute_ms_s1": 3.450748510658741,
+  "compute_ms_s128": 9.923463454470038,
+  "compute_ms_s512": 27.318132983054966,
+  "compute_ms_s2048": 165.5818119761534,
+  "K_needed_decode": 12.937980657252362,
+  "nvme": {
+    "model": "Micron_4600_MTFDLBA2T0THJ",
+    "current_link": "16.0 GT/s PCIe x4 (PCIe 4.0)",
+    "max_link": "32.0 GT/s PCIe x4 (PCIe 5.0)"
+  }
+}

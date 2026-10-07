@@ -1,0 +1,30 @@
+START fp32 checks Mon Oct  5 03:25:23 AM CDT 2026
+weights_qwen2.5-1.5b prompt_long.txt: generated token 10; runs [('tree', '8,16,16,12,8,4')]
+  fp32 top-3 [3271, 2795, 7807] logits [21.428, 21.356, 21.311] tokens ["' move'", "' load'", "' fetch'"]
+  margin top1-top2 = 0.0723 (0.34% of top1); baseline picked 2795 ' load', divergent picked [3271] [' move']; fp32 agrees with: divergent run
+weights_qwen2.5-1.5b prompts/chat_summary.txt: no divergence from the baseline
+weights_qwen2.5-1.5b prompts/chat_code.txt: no divergence from the baseline
+weights_qwen2.5-3b prompt_long.txt: no divergence from the baseline
+weights_qwen2.5-3b prompts/chat_summary.txt: no divergence from the baseline
+weights_qwen2.5-3b prompts/chat_code.txt: no divergence from the baseline
+weights_qwen2.5-7b prompt_long.txt: generated token 23; runs [('tree', '8,16,16,12,8,4')]
+  fp32 top-3 [2803, 1401, 4994] logits [22.108, 22.047, 21.251] tokens ["' seem'", "' look'", "' appear'"]
+  margin top1-top2 = 0.0603 (0.27% of top1); baseline picked 1401 ' look', divergent picked [2803] [' seem']; fp32 agrees with: divergent run
+weights_qwen2.5-7b prompts/chat_summary.txt: generated token 4; runs [('tree', '8,16,16,12,8,4')]
+  fp32 top-3 [16878, 12575, 12510] logits [23.611, 23.337, 22.552] tokens ["' measured'", "' replaced'", "' tested'"]
+  margin top1-top2 = 0.2739 (1.16% of top1); baseline picked 16878 ' measured', divergent picked [12575] [' replaced']; fp32 agrees with: baseline
+weights_qwen2.5-7b prompts/chat_code.txt: no divergence from the baseline
+weights_qwen2.5-14b prompt_long.txt: generated token 5; runs [('tree', '8,16,16,12,8,4')]
+  fp32 top-3 [6291, 1172, 8645] logits [15.603, 15.549, 15.441] tokens ["' solution'", "' only'", "' challenge'"]
+  margin top1-top2 = 0.0540 (0.35% of top1); baseline picked 6291 ' solution', divergent picked [1172] [' only']; fp32 agrees with: baseline
+weights_qwen2.5-14b prompts/chat_summary.txt: no divergence from the baseline
+weights_qwen2.5-14b prompts/chat_code.txt: no divergence from the baseline
+weights_qwen3-30b-a3b prompt_long.txt: generated token 16; runs [('tree', '8,16,16,12,8,4')]
+  fp32 top-3 [13, 11, 438] logits [27.819, 27.603, 27.14] tokens ["'.'", "','", "' as'"]
+  margin top1-top2 = 0.2159 (0.78% of top1); baseline picked 13 '.', divergent picked [11] [',']; fp32 agrees with: baseline
+weights_qwen3-30b-a3b prompts/chat_summary.txt: no divergence from the baseline
+weights_qwen3-30b-a3b prompts/chat_code.txt: no divergence from the baseline
+weights_gpt-oss-20b prompt_long.txt: no divergence from the baseline
+weights_gpt-oss-20b prompts/chat_summary.txt: no divergence from the baseline
+weights_gpt-oss-20b prompts/chat_code.txt: no divergence from the baseline
+DONE fp32 checks Mon Oct  5 03:27:34 AM CDT 2026

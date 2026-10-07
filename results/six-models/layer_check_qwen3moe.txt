@@ -1,0 +1,4 @@
+qwen3_moe: inv_freq max|Δ| 0.00e+00; cos max|Δ| 0.00e+00
+layer  0: max|Δ| vs HF fp32 = 4.77e-07 (scale 2.5); decode step vs prefill = 1.04e-07
+layer 24: max|Δ| vs HF fp32 = 4.89e-06 (scale 5.1); decode step vs prefill = 6.44e-06
+layer 47: max|Δ| vs HF fp32 = 4.96e-05 (scale 104.1); decode step vs prefill = 2.67e-05

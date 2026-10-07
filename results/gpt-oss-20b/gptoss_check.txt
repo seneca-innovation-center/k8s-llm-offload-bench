@@ -1,0 +1,5 @@
+inv_freq max|Δ| 0.000e+00; attention scaling HF 1.346574 ours 1.346574; cos max|Δ| 0.000e+00
+layer  0 (sliding_attention): max|Δ| vs HF fp32 = 1.526e-05 (output scale 103.1); decode step vs prefill = 1.526e-05
+layer  1 (full_attention   ): max|Δ| vs HF fp32 = 1.717e-05 (output scale 67.3); decode step vs prefill = 1.240e-05
+layer 22 (sliding_attention): max|Δ| vs HF fp32 = 1.953e-03 (output scale 76293.1); decode step vs prefill = 2.148e-02
+layer 23 (full_attention   ): max|Δ| vs HF fp32 = 1.660e-02 (output scale 189898.9); decode step vs prefill = 1.094e-01

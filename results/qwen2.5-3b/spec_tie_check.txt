@@ -1,0 +1,5 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  3.00it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  3.94it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  3.76it/s]
+fp32 logits for token 15 (128-token prompt): top3 ids [38975, 2355, 279] values [18.532, 18.437, 18.298]
+margin top1-top2 = 0.0948 | tokens: ["' simplicity'", "' power'", "' the'"]
+single-token bf16 decode picked 2355 = ' power' ; 6-token bf16 verify pass picked 38975 = ' simplicity'

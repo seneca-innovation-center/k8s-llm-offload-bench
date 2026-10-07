@@ -1,0 +1,10 @@
+=== prompts/chat_explain.txt
+first divergence at generated token 36; configs: [('tree', '8,16,16,12,8,4'), ('tree', '8,8,8,4')]
+fp32 top-3 ids [13814, 10993, 264] logits [30.392, 30.329, 28.498] tokens ["' frequently'", "' copies'", "' a'"]
+margin top1-top2 = 0.0625 (0.21% of top1)
+baseline picked 10993 ' copies' ; divergent runs picked [13814]
+=== prompts/chat_summary.txt
+first divergence at generated token 32; configs: [('tree', '3,4,4,3,2,2,1'), ('tree', '4,6,6,4,2'), ('tree', '8,8,8,4')]
+fp32 top-3 ids [7172, 1865, 11941] logits [25.998, 25.945, 25.857] tokens ["' increased'", "' made'", "' significantly'"]
+margin top1-top2 = 0.0526 (0.20% of top1)
+baseline picked 7172 ' increased' ; divergent runs picked [1865]

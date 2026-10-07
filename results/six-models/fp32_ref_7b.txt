@@ -1,0 +1,6 @@
+weights_qwen2.5-7b prompt_long.txt: generated token 23; runs [('tree', '8,16,16,12,8,4')]
+  fp32 top-3 [2803, 1401, 4994] logits [22.108, 22.047, 21.251] tokens ["' seem'", "' look'", "' appear'"]
+  margin top1-top2 = 0.0603 (0.27% of top1); baseline picked 1401 ' look', divergent picked [2803] [' seem']; fp32 agrees with: divergent run
+weights_qwen2.5-7b prompts/chat_summary.txt: generated token 4; runs [('tree', '8,16,16,12,8,4')]
+  fp32 top-3 [16878, 12575, 12510] logits [23.611, 23.337, 22.552] tokens ["' measured'", "' replaced'", "' tested'"]
+  margin top1-top2 = 0.2739 (1.16% of top1); baseline picked 16878 ' measured', divergent picked [12575] [' replaced']; fp32 agrees with: baseline

@@ -1,0 +1,4 @@
+# command (run 24 Sep 2026 UTC, cyclic:v1 image = torch 2.8.0 CPU, transformers <5):
+#   docker run --rm --cpuset-cpus 16-31 -v $PWD:/exp -w /exp cyclic:v1 python fp32_check.py /exp/hf/models--Qwen--Qwen2.5-3B-Instruct/snapshots/<hash>
+# compares our layer_forward (common.py) with HF Qwen2ForCausalLM, both fp32, logits over the first 128 prompt tokens
+max|dlogit| 0.0 ref logit scale 27.740497589111328 argmax agree 1.0

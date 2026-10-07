@@ -1,0 +1,16 @@
+{
+ "model": "gpt_oss",
+ "layers": 24,
+ "layer_bytes": 1646375608,
+ "model_bytes": 39513014592,
+ "cold_load_ms_med": 597.8133744793013,
+ "cold_load_ms_p90": 641.7305509094149,
+ "cold_GBps": 2.7539959430215193,
+ "warm_load_ms_med": 244.6948509896174,
+ "compute_ms_s1": 6.367177527863532,
+ "compute_ms_s128": 47.040664590895176,
+ "compute_ms_s512": 103.4802045323886,
+ "compute_ms_s2048": 387.91366398800164,
+ "K_needed_decode": 94.88985494172233,
+ "floor_s_per_token_at_7.1GBps": 5.565213322816901
+}
