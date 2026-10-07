@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Decision Rules for Streaming LLM Layers under Memory Pressure: Dense vs Mixture-of-Experts"
+type: software
+authors:
+  - family-names: Bejaoui
+    given-names: Abderrahmen
+date-released: 2026-10-07
+license: Apache-2.0
+repository-code: "https://github.com/seneca-innovation-center/k8s-llm-offload-bench"
+abstract: >-
+  Measurements of five strategies for serving a language model larger than the free memory of a single
+  Kubernetes node with one NVMe drive (cyclic multi-pod streaming, single-pod streaming, partial residency,
+  kernel paging under a pod memory limit, speculative decoding on top of streaming), on six models
+  (Qwen2.5-1.5B/3B/7B/14B, gpt-oss-20b, Qwen3-30B-A3B), 1,431 runs, bf16, no quantisation. Dense models are best
+  served by single-pod streaming with tree speculation; mixture-of-experts models by kernel paging; no streaming
+  scheme beats layer bytes divided by disk bandwidth.
+keywords:
+  - kubernetes
+  - llm inference
+  - offloading
+  - mixture of experts
+  - speculative decoding
