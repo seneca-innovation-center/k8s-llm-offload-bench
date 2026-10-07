@@ -1,0 +1,19 @@
+# model weights and downloads (tens of GB): never commit
+src/engine/weights*/
+src/engine/models/
+src/engine/draft/
+src/engine/hf/
+src/engine/gptoss/
+src/engine/local/
+*.safetensors
+*.bin
+*.gguf
+# experiment output written by the sweeps inside the mounted directory
+src/engine/results*/
+src/engine/k8s/
+src/engine/*.log
+# local
+__pycache__/
+*.pyc
+.DS_Store
+docs/*.html
