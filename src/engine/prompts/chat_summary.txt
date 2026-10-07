@@ -1,0 +1,3 @@
+Summarize the following notes into five bullet points for a manager, then add one sentence of recommendation.
+
+Notes: The team measured a language model served from an NVMe drive instead of RAM. Keeping only a few layers in memory cut RAM use by 70 percent. Generating each word became six times slower because the whole model is re-read from the drive for every word. Adding more pods did not help because they all share one drive. A long prompt was processed at normal speed. A small helper model that guesses words and a verification pass brought the slowdown down to about three times. Serving many users at once recovered most of the throughput but not the latency for a single user.

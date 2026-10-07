@@ -1,0 +1,19 @@
+The first electronic computers filled entire rooms and were programmed by rewiring panels of cables. Each new problem meant days of physical work before a single calculation could run. Stored-program machines changed that: instructions became data, kept in the same memory as the numbers they operated on, and a program could be swapped in minutes instead of days.
+
+Memory has been the expensive part of a computer for most of its history. Early machines used mercury delay lines and cathode ray tubes to hold a few thousand bits. Magnetic core memory made a few kilobytes affordable in the 1960s, and dynamic RAM chips pushed that to megabytes in the 1980s. Yet programs grew as fast as memory did, and the question of what to keep close to the processor and what to leave on slower storage has never gone away.
+
+A cache exploits the fact that programs reuse the same data and instructions many times within a short window. A small, fast memory placed next to the processor holds recently used lines, and most accesses hit there instead of going to the larger, slower main memory. Modern chips stack several levels of cache, each larger and slower than the last, and the hit rate at each level decides how fast the machine really is.
+
+Virtual memory takes the same idea one step further. The operating system divides memory into pages and keeps only the active ones in RAM, writing the rest to disk. When a program touches a page that is not present, the hardware stops it, the kernel fetches the page, and the program resumes without knowing anything happened. Performance depends entirely on how often that fault occurs.
+
+Disks have improved in their own way. Spinning platters gave way to flash, and flash drives moved from the SATA interface to PCI Express, where a single drive can now deliver several gigabytes per second. Still, that is an order of magnitude below what main memory provides, and two orders below the bandwidth a processor consumes when it streams through a large matrix.
+
+Language models are, at their core, large matrices. Every token that a model produces requires reading all of its weights once, and for a model with billions of parameters that means several gigabytes of traffic per token. The arithmetic itself is cheap in comparison; the time goes to moving weights from wherever they live into the units that multiply them.
+
+This makes serving a model a memory problem rather than a compute problem. If the weights fit in fast memory, tokens come out quickly. If they do not, each token waits for the slow tier, and no amount of extra compute helps. Engineers therefore spend their effort on quantization, batching, and clever placement of weights across devices, all of which reduce the bytes that must move for each token produced.
+
+Distributed serving splits a model across several machines or accelerators. Tensor parallelism cuts each matrix into pieces that are multiplied in parallel; pipeline parallelism assigns consecutive layers to different devices and passes activations between them. Both approaches trade communication for memory capacity, and the network between the devices becomes the new bottleneck to understand.
+
+Measuring such systems honestly is harder than building them. Latency for the first token and latency for each following token behave differently, throughput depends on how many requests share the hardware, and a shared machine drifts from one hour to the next. A careful experiment repeats its baseline, reports ranges rather than single numbers, and states which quantities it did not measure.
+
+The history of computing suggests that today's bottleneck becomes tomorrow's footnote. Memory that seemed impossibly expensive is now given away in a phone, and interfaces that were exotic are now standard. Whether the same will be true for the bandwidth that language models demand is an open question, and the answer will decide which of today's serving tricks survive.

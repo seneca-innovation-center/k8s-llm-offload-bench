@@ -1,0 +1,1 @@
+Explain to a new engineer how a CPU cache works, why it exists, and what happens on a cache miss. Use two short examples and keep it under 300 words.

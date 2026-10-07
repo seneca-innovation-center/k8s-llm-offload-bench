@@ -1,0 +1,75 @@
+apiVersion: v1
+kind: Service
+metadata: {name: stage}
+spec:
+  clusterIP: None
+  publishNotReadyAddresses: true
+  selector: {app: stage}
+  ports: [{port: 9000}]
+---
+apiVersion: v1
+kind: Service
+metadata: {name: coordinator}
+spec:
+  clusterIP: None
+  publishNotReadyAddresses: true
+  selector: {app: coordinator}
+  ports: [{port: 9000}]
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata: {name: stage}
+spec:
+  serviceName: stage
+  replicas: 1
+  podManagementPolicy: Parallel
+  selector: {matchLabels: {app: stage}}
+  template:
+    metadata: {labels: {app: stage}}
+    spec:
+      terminationGracePeriodSeconds: 1
+      containers:
+      - name: stage
+        image: cyclic:v1
+        imagePullPolicy: Never
+        command: [python, /exp/stage_server.py]
+        workingDir: /exp
+        readinessProbe: {tcpSocket: {port: 9000}, periodSeconds: 1}
+        resources: {limits: {memory: 38Gi}}
+        env:
+        - {name: G, value: "1"}
+        - {name: K, value: "1"}
+        - {name: MODE, value: "resident"}
+        - {name: THREADS, value: "16"}
+        - {name: OMP_WAIT_POLICY, value: "PASSIVE"}
+        - {name: WEIGHTS, value: "/exp/weights_qwen3-30b-a3b"}
+        - {name: LOAD_MODE, value: "mmap"}
+        - {name: PROMPT_FILE, value: "prompt_long.txt"}
+        - {name: POD_NAME, valueFrom: {fieldRef: {fieldPath: metadata.name}}}
+        volumeMounts: [{name: exp, mountPath: /exp}]
+      volumes: [{name: exp, hostPath: {path: /exp}}]
+---
+apiVersion: v1
+kind: Pod
+metadata: {name: coordinator, labels: {app: coordinator}}
+spec:
+  terminationGracePeriodSeconds: 1
+  containers:
+  - name: coordinator
+    image: cyclic:v1
+    imagePullPolicy: Never
+    command: [python, /exp/coordinator.py]
+    workingDir: /exp
+    readinessProbe: {httpGet: {path: /, port: 8000}, periodSeconds: 1, failureThreshold: 600}
+    env:
+    - {name: G, value: "1"}
+    - {name: K, value: "1"}
+    - {name: MODE, value: "resident"}
+    - {name: THREADS, value: "16"}
+    - {name: OMP_WAIT_POLICY, value: "PASSIVE"}
+    - {name: WEIGHTS, value: "/exp/weights_qwen3-30b-a3b"}
+    - {name: LOAD_MODE, value: "mmap"}
+    - {name: PROMPT_FILE, value: "prompt_long.txt"}
+    - {name: POD_NAME, valueFrom: {fieldRef: {fieldPath: metadata.name}}}
+    volumeMounts: [{name: exp, mountPath: /exp}]
+  volumes: [{name: exp, hostPath: {path: /exp}}]

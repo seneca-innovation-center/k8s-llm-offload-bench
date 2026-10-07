@@ -1,0 +1,1 @@
+Write a Python function that reads a large binary file in 64 MB chunks using os.readv into a preallocated numpy buffer, with posix_fadvise DONTNEED before and after the read, and returns the buffer. Include a short docstring and a usage example.
